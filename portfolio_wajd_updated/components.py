@@ -37,6 +37,16 @@ def tags(items, cls="tags"):
     return f'<ul class="{cls}">{chips}</ul>'
 
 
+def metrics(items, cls="metrics"):
+    """Headline numbers: [(value, label), ...]. dir="auto" keeps "−35%" / "60 يومًا" readable in both languages."""
+    if not items:
+        return ""
+    cells = "".join(
+        f'<li><strong dir="auto">{_e(v)}</strong><span>{_e(l)}</span></li>' for v, l in items
+    )
+    return f'<ul class="{cls}">{cells}</ul>'
+
+
 def section_head(index, kicker, title, intro="", heading_id=""):
     intro_html = f'<p class="section-intro">{_e(intro)}</p>' if intro else ""
     return (
@@ -169,12 +179,16 @@ def about(data, index, asset_base):
     principles = "".join(
         f"<li><h3>{_e(t)}</h3><p>{_e(d)}</p></li>" for t, d in a["principles"]
     )
+    language_link = ""
+    if a.get("languages_link"):
+        label, url = a["languages_link"]
+        language_link = _external(url, f"{_e(label)}{icon('external')}", cls="text-link small-link")
     return (
         '<div class="container about-grid">'
         '<figure class="portrait">'
         f'<img src="{_e(asset_base)}{_e(SITE["photo"])}" alt="{_e(data["hero"]["name"])}" '
         'width="720" height="827" loading="lazy" decoding="async">'
-        f'<figcaption><span>{_e(a["languages_label"])}</span>{_e(a["languages"])}</figcaption>'
+        f'<figcaption><span>{_e(a["languages_label"])}</span>{_e(a["languages"])}{language_link}</figcaption>'
         "</figure>"
         '<div class="about-copy">'
         + section_head(index, a["kicker"], a["title"], heading_id="about-title")
@@ -195,10 +209,12 @@ def experience(data, index):
             '<div class="role-meta">'
             f'<p class="role-date">{_e(item["date"])}</p>'
             f'<p class="role-org">{_e(item["org"])}</p>'
-            "</div>"
+            + (f'<p class="role-dept">{_e(item["dept"])}</p>' if item.get("dept") else "")
+            +             "</div>"
             '<div class="role-body">'
             f"<h3>{_e(item['role'])}</h3>"
             f'<p class="role-summary">{_e(item["summary"])}</p>'
+            f"{metrics(item.get('metrics'))}"
             f'<ul class="role-points">{points}</ul>'
             f"{tags(item['tags'])}"
             "</div>"
@@ -214,7 +230,7 @@ def experience(data, index):
 
 def project_card(index, project, ui):
     details = ""
-    for key in ("problem", "solution", "contribution", "impact"):
+    for key in ("problem", "solution", "contribution"):
         if project.get(key):
             details += f'<div class="detail detail-{key}"><dt>{_e(ui[key])}</dt><dd>{_e(project[key])}</dd></div>'
     return (
@@ -226,6 +242,7 @@ def project_card(index, project, ui):
         "</div>"
         f"<h3>{_e(project['title'])}</h3>"
         f'<p class="project-summary">{_e(project["summary"])}</p>'
+        f"{metrics(project.get('metrics'))}"
         f"{tags(project['tags'])}"
         f"{link_buttons(project.get('links', {}), ui)}"
         "</div>"
@@ -250,7 +267,7 @@ def projects(data, index):
     featured = "".join(project_card(i, proj, ui) for i, proj in enumerate(p["featured"], 1))
     more = "".join(mini_project(proj, ui) for proj in p["more"])
     github = _external(
-        SITE["github"],
+        SITE["github_repos"],
         f"{icon('github')}<span>{_e(ui['all_github'])}</span>{icon('external')}",
         cls="text-link",
     )
@@ -281,7 +298,12 @@ def skills(data, index):
 
 
 def education(data, index):
-    ed = data["education"]
+    ed, ui = data["education"], data["ui"]
+    certificate = (
+        _external(ed["certificate_url"], f"<span>{_e(ui['view_certificate'])}</span>{icon('external')}", cls="text-link")
+        if ed.get("certificate_url")
+        else ""
+    )
     return (
         '<div class="container">'
         + section_head(index, ed["kicker"], ed["title"], heading_id="education-title")
@@ -291,6 +313,7 @@ def education(data, index):
         f"<h3>{_e(ed['degree'])}</h3>"
         f'<p class="degree-date">{_e(ed["date"])}</p>'
         f'<p class="degree-focus">{_e(ed["focus"])}</p>'
+        f"{certificate}"
         "</div>"
         f'<p class="degree-gpa"><span>{_e(ed["gpa_label"])}</span><strong>{_e(ed["gpa"])}</strong></p>'
         "</article>"
@@ -314,7 +337,9 @@ def certifications(data, index):
             '<div class="cert-body">'
             f"<h3>{_e(cert['name'])}</h3>"
             f"{text}"
-            f'<p class="cert-meta">{_e(cert["issuer"])} · {_e(ui["issued"])} {_e(cert["date"])}</p>'
+            f'<p class="cert-meta">'
+            + (f'<span class="cert-code">{_e(cert["code"])}</span>' if cert.get("code") else "")
+            + f'{_e(cert["issuer"])} · {_e(ui["issued"])} {_e(cert["date"])}</p>'
             f"{verify}"
             "</div>"
             "</li>"
@@ -323,8 +348,29 @@ def certifications(data, index):
         '<div class="container">'
         + section_head(index, c["kicker"], c["title"], c.get("intro", ""), heading_id="certifications-title")
         + f'<ul class="cert-list">{cards}</ul>'
-        "</div>"
+        + courses(c.get("courses", []), ui)
+        + "</div>"
     )
+
+
+def courses(items, ui):
+    if not items:
+        return ""
+    rows = ""
+    for name, provider, date, url in items:
+        verify = (
+            _external(url, f"<span>{_e(ui['verify_short'])}</span>{icon('external')}", cls="text-link small-link")
+            if url
+            else ""
+        )
+        rows += (
+            '<li class="course">'
+            f'<div><h4>{_e(name)}</h4><p>{_e(provider)} · {_e(date)}</p></div>'
+            f"{verify}"
+            "</li>"
+        )
+    return f'<h3 class="subhead">{_e(ui["courses"])}</h3><ul class="course-list">{rows}</ul>'
+
 
 
 def volunteering(data, index):
@@ -335,11 +381,14 @@ def volunteering(data, index):
         if item.get("highlight"):
             value, label = item["highlight"]
             highlight = (
-                f'<p class="vol-highlight"><strong>{_e(value)}</strong><span>{_e(label)}</span></p>'
+                f'<p class="vol-highlight"><strong dir="auto">{_e(value)}</strong><span>{_e(label)}</span></p>'
             )
         cards += (
             '<li class="vol">'
-            f'<p class="vol-type">{_e(item["type"])}</p>'
+            '<div class="vol-top">'
+            f'<p class="vol-type">{_e(item["role"])}</p>'
+            f'<p class="vol-date">{_e(item["date"])}</p>'
+            "</div>"
             f"<h3>{_e(item['org'])}</h3>"
             f'<p class="vol-text">{_e(item["text"])}</p>'
             f"{highlight}"

@@ -161,6 +161,21 @@ body { margin: 0; background: var(--bg); }
 .icon-linkedin { --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z'/%3E%3C/svg%3E"); }
 [dir="rtl"] .icon-arrow { transform: scaleX(-1); }
 
+/* ---------- Metrics ---------- */
+
+.metrics { display: flex; flex-wrap: wrap; gap: 10px; }
+.metrics li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 112px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--accent-soft);
+}
+.metrics strong { font-size: 22px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; color: var(--text); }
+.metrics span { font-size: 12.5px; color: var(--muted); line-height: 1.4; max-width: 18ch; }
+
 /* ---------- Buttons & links ---------- */
 
 .btn {
@@ -196,6 +211,9 @@ body { margin: 0; background: var(--bg); }
   color: var(--text);
 }
 .text-link:hover { color: var(--accent); }
+.small-link { font-size: 13px; color: var(--accent); }
+.small-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+.degree-main .text-link { margin-top: 18px; }
 
 /* ---------- Top bar ---------- */
 
@@ -505,7 +523,8 @@ main { display: block; }
   border-top: 1px solid var(--border);
   font-size: 14px;
 }
-.portrait figcaption span {
+.portrait figcaption .small-link { margin-top: 6px; }
+.portrait figcaption > span {
   font-family: var(--font-mono);
   font-size: 11.5px;
   text-transform: uppercase;
@@ -538,6 +557,8 @@ main { display: block; }
 }
 .role-date { font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
 .role-org { margin-top: 6px !important; font-size: 16px; font-weight: 600; }
+.role-dept { margin-top: 2px !important; font-size: 14px; color: var(--muted); }
+.role-body .metrics { margin-top: 22px; }
 .role-body h3 { font-size: clamp(1.25rem, 2.2vw, 1.5rem); }
 .role-summary { margin-top: 10px !important; color: var(--muted); }
 .role-points { display: grid; gap: 10px; margin-block: 22px 26px !important; }
@@ -629,7 +650,8 @@ main { display: block; }
 
 /* ---------- Skills ---------- */
 
-.skill-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.skill-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 1100px) { .skill-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .skill-group {
   padding: 24px;
   background: var(--surface);
@@ -705,6 +727,33 @@ main { display: block; }
 .cert-text { color: var(--muted); font-size: 15px; }
 .cert-meta { font-family: var(--font-mono); font-size: 13px; color: var(--faint); }
 .site[lang="ar"] .cert-meta { font-family: var(--font-sans); }
+.cert-code {
+  display: inline-block;
+  margin-inline-end: 10px;
+  padding: 1px 8px;
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text);
+}
+.course-list {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding-inline: clamp(20px, 3vw, 32px) !important;
+}
+.course {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 18px;
+}
+.course + .course { border-top: 1px solid var(--border); }
+.course h4 { font-size: 15.5px; font-weight: 500; line-height: 1.4; }
+.course p { margin-top: 2px !important; font-size: 13.5px; color: var(--muted); }
+.course .small-link { flex: none; }
 
 /* ---------- Volunteering ---------- */
 
@@ -720,6 +769,9 @@ main { display: block; }
   transition: border-color 0.2s, box-shadow 0.25s;
 }
 .vol:hover { border-color: var(--border-strong); box-shadow: var(--shadow); }
+.vol-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.vol-date { font-family: var(--font-mono); font-size: 12.5px; color: var(--faint); }
+.site[lang="ar"] .vol-date { font-family: var(--font-sans); font-size: 13px; }
 .vol-type {
   font-family: var(--font-mono);
   font-size: 12px;
@@ -731,7 +783,7 @@ main { display: block; }
 .vol h3 { font-size: clamp(1.15rem, 2vw, 1.35rem); }
 .vol-text { color: var(--muted); font-size: 15.5px; }
 .vol-highlight { display: flex; align-items: baseline; gap: 10px; }
-.vol-highlight strong { direction: ltr; unicode-bidi: isolate; font-size: 30px; font-weight: 600; letter-spacing: -0.03em; }
+.vol-highlight strong { font-size: 30px; font-weight: 600; letter-spacing: -0.03em; }
 .vol-highlight span { color: var(--muted); font-size: 14px; }
 .vol .tags { margin-top: auto; padding-top: 8px; }
 
