@@ -1,0 +1,11 @@
+[server]
+# Serves files in ./static at /app/static/ (used for the profile photo).
+enableStaticServing = true
+headless = true
+
+[client]
+toolbarMode = "minimal"
+showSidebarNavigation = false
+
+[browser]
+gatherUsageStats = false

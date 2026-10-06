@@ -1,145 +1,63 @@
-# Wajd Alharbi - AI/ML Engineer Portfolio
+# Wajd Mazen Alharbi — Portfolio
 
-A modern, bilingual (English/Arabic) portfolio website built with Streamlit, featuring a responsive design and smooth animations.
+Personal portfolio of **Wajd Mazen Alharbi**, AI Engineer (Automation & Agentic AI).
+Single-page, bilingual (English / العربية, full RTL), light/dark theme, responsive.
 
-## Features
+The site is built from Python: `content.py` holds all text, `components.py` turns it
+into semantic HTML, and `static/style.css` is the design system. The same markup is
+served two ways:
 
-✨ **Bilingual Support** - Seamlessly switch between English and Arabic (RTL support)
-🎨 **Modern Design** - Beautiful gradient backgrounds and smooth transitions
-📱 **Responsive** - Works perfectly on desktop and mobile devices
-🌙 **Dark Theme** - Eye-friendly dark mode with professional color scheme
-⚡ **Fast Loading** - Optimized performance with minimal dependencies
-🔗 **Social Integration** - LinkedIn, GitHub, and Twitter links
-📸 **Profile Photo** - Professional profile image support
+| | Command | Use it for |
+|---|---|---|
+| **Streamlit app** | `streamlit run app.py` | Local preview / Streamlit Community Cloud |
+| **Static site** | `python build.py` → `dist/` | Production hosting with full SEO (GitHub Pages, Netlify, Vercel) |
 
-## Installation
+## Run locally
 
-### Prerequisites
-- Python 3.8 or higher
-- pip (Python package manager)
+```bash
+cd portfolio_wajd_updated
+pip install -r requirements.txt
+streamlit run app.py          # http://localhost:8501  (Arabic: ?lang=ar)
+```
 
-### Setup Steps
+## Build the static site
 
-1. **Clone or download the project**
-   ```bash
-   cd portfolio_wajd_updated
-   ```
+```bash
+python build.py               # no extra dependencies
+python -m http.server -d dist # preview at http://localhost:8000
+```
 
-2. **Create a virtual environment (optional but recommended)**
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
+`dist/index.html` (English) and `dist/ar/index.html` (Arabic) include the meta description,
+Open Graph tags, JSON-LD `Person` data and `hreflang` links. Set `SITE["url"]` in
+`content.py` to your deployed URL to also emit canonical / `og:image` tags.
 
-3. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Run the application**
-   ```bash
-   streamlit run app.py
-   ```
-
-5. **Open in browser**
-   - The app will automatically open at `http://localhost:8501`
-   - If not, copy the URL from the terminal
-
-## Project Structure
+## Project structure
 
 ```
 portfolio_wajd_updated/
-├── app.py                 # Main Streamlit application
-├── components.py          # Reusable UI components
-├── content.py            # Bilingual content and data
-├── requirements.txt      # Python dependencies
-├── README.md            # This file
-└── assets/
-    ├── style.css        # Custom CSS styling
-    └── profile.png      # Your profile photo
+├── app.py              # Streamlit entry point (language via ?lang=en|ar)
+├── build.py            # Static site generator → dist/
+├── components.py       # HTML components (shared by app.py and build.py)
+├── content.py          # All content, English + Arabic — edit this to update the site
+├── static/
+│   ├── style.css       # Design system: tokens, light/dark, RTL, responsive
+│   └── profile.jpg     # Profile photo (served by Streamlit at /app/static/)
+└── .streamlit/config.toml
 ```
 
-## Customization
+## Updating content
 
-### Update Your Information
+Everything lives in `content.py`. Empty optional fields are hidden, so you can fill
+them in as you go:
 
-Edit `content.py` to update:
-- Your name and role
-- Education details
-- Work experience
-- Projects
-- Skills
-- Contact information
+- Project `links`: `{"code": "https://github.com/...", "demo": "https://..."}` adds buttons.
+- Project `contribution` / `impact`: shown as extra rows on the project card.
+- Certification `url`: makes the certificate name a verification link.
+- Look for `# TODO` comments for details that still need your input.
 
-### Update Social Links
+## Notes
 
-In `components.py`, modify the URLs in the `social_links()` function:
-```python
-<a href="https://www.linkedin.com/in/your-profile" ...>LinkedIn</a>
-<a href="https://github.com/your-username" ...>GitHub</a>
-```
-
-### Change Colors and Styling
-
-Edit `assets/style.css` to customize:
-- Color scheme
-- Font sizes
-- Spacing
-- Animations
-
-## Browser Support
-
-- Chrome/Chromium (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-
-## Deployment Options
-
-### Streamlit Cloud (Recommended - Free)
-1. Push your code to GitHub
-2. Go to [share.streamlit.io](https://share.streamlit.io)
-3. Connect your GitHub repository
-4. Select this app and deploy
-
-### Other Options
-- Heroku
-- AWS
-- Google Cloud
-- Azure
-- DigitalOcean
-
-## Troubleshooting
-
-**Issue: Content appears as code**
-- Clear browser cache (Ctrl+Shift+Delete or Cmd+Shift+Delete)
-- Restart Streamlit: Press `C` in terminal, then run `streamlit run app.py` again
-
-**Issue: Images not loading**
-- Ensure `assets/profile.png` exists
-- Check file permissions
-- Try clearing cache
-
-**Issue: Language toggle not working**
-- Refresh the page
-- Clear browser cache
-- Check browser console for errors (F12)
-
-## Performance Tips
-
-- Keep images optimized and compressed
-- Use CDN for external assets
-- Minimize CSS file size
-- Cache static content
-
-## License
-
-This portfolio is personal and proprietary. Feel free to use as a template for your own portfolio.
-
-## Support
-
-For issues or questions, please check the [Streamlit documentation](https://docs.streamlit.io)
-
----
-
-**Built with ❤️ using Streamlit**
+- The theme toggle is CSS-only (works inside Streamlit, which strips scripts); the
+  static build also remembers the choice in `localStorage`.
+- Streamlit renders pages client-side, so search engines see little of it — deploy the
+  static build if SEO matters.

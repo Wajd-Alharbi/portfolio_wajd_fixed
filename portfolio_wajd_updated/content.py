@@ -1,324 +1,480 @@
-CONTENT = {
-    "English": {
-        "profile": {
-            "name": "Wajd Alharbi",
-            "role": "AI / ML Engineer",
-            "availability": "Open to opportunities",
-        },
-        "menu": {
-            "Home": "Home",
-            "Education": "Education",
-            "Experience": "Experience",
-            "Projects": "Projects",
-            "Certifications": "Certifications",
-            "Volunteering": "Volunteering",
-            "Skills": "Skills",
-            "Languages": "Languages",
-            "Contact": "Contact",
-        },
-        "home": {
-            "hero": {
-                "eyebrow": "Artificial Intelligence • Machine Learning • Generative AI",
-                "title_part1": "Building",
-                "title_gradient": "Intelligent",
-                "title_part2": "Systems.",
-                "description": "AI graduate and aspiring AI/ML Engineer passionate about Autonomous AI Agents, Large Language Models, NLP, Computer Vision, and Generative AI.<br><br>I build intelligent solutions that transform complex problems into practical, data-driven systems.",
-                "primary_btn": "Connect on LinkedIn →",
-                "secondary_btn": "Let's Talk"
-            },
-            "stats": [
-                {"icon": "", "title": "4.92 / 5", "text": "Bachelor's GPA in Artificial Intelligence"},
-                {"icon": "", "title": "AI / ML", "text": "Focused on intelligent and data-driven systems"},
-                {"icon": "", "title": "LLMs", "text": "Generative AI, NLP and autonomous agents"},
-                {"icon": "", "title": "NVIDIA", "text": "NVIDIA-Certified Associate: Generative AI LLMs"}
-            ],
-            "focus_areas": [
-                {"icon": "", "title": "Generative AI", "text": "Large Language Models, Prompt Engineering, RAG systems, autonomous agents and intelligent AI applications."},
-                {"icon": "", "title": "Machine Learning", "text": "Model development, data analysis, anomaly detection, classification, evaluation and optimization."},
-                {"icon": "", "title": "Computer Vision", "text": "Image classification, CNN-based systems, object detection and practical computer vision applications."}
-            ]
-        },
-        "education": {
-            "title": "Education",
-            "subtitle": "Academic background and foundation.",
-            "items": [
-                {
-                    "title": "Bachelor's Degree in Artificial Intelligence",
-                    "date": "University of Jeddah • Aug 2021 – May 2026",
-                    "text": "GPA: <strong>4.92 / 5</strong><br><br>Focused on AI, Machine Learning, Deep Learning, NLP, Computer Vision, and Data Science."
-                }
-            ]
-        },
-        "experience": {
-            "title": "Experience",
-            "subtitle": "Applying AI to real-world problems.",
-            "items": [
-                {
-                    "title": "AI Engineer — Intern",
-                    "date": "Jeddah Municipality • Jun 2025 – Aug 2025",
-                    "text": "• Developed an intelligent HR chatbot.<br>• Developed smart solutions to improve workflow efficiency.<br>• Enhanced a CNN model for waste detection with <strong>95%</strong> accuracy."
-                }
-            ]
-        },
-        "projects": {
-            "title": "Projects",
-            "subtitle": "A collection of my AI and ML work.",
-            "items": [
-                {
-                    "number": "Project 01",
-                    "title": "Smart Complaint Classifier",
-                    "description": "System for classifying Arabic complaints using AraBERT and Transformer techniques.",
-                    "tags": ["NLP", "AraBERT", "Transformers"]
-                },
-                {
-                    "number": "Project 02",
-                    "title": "Vision-Based Waste Detection",
-                    "description": "CNN-based system for automatic detection and classification of urban waste.",
-                    "tags": ["Computer Vision", "CNN", "Deep Learning"]
-                },
-                {
-                    "number": "Project 03",
-                    "title": "Semantic-Enhanced Collaborative Filtering",
-                    "description": "Hybrid recommendation system combining semantic information and Collaborative Filtering.",
-                    "tags": ["Recommender Systems", "Machine Learning"]
-                },
-                {
-                    "number": "Project 04",
-                    "title": "Agentic AI with Autonomous Agents",
-                    "description": "Intelligent anomaly detection system combining autonomous agents and ML models.",
-                    "tags": ["AI Agents", "LSTM", "XGBoost"]
-                }
-            ]
-        },
-        "certifications": {
-            "title": "Certifications",
-            "subtitle": "Professional credentials and certifications.",
-            "items": [
-                {
-                    "icon": "",
-                    "title": "NVIDIA-Certified Associate: Generative AI LLMs",
-                    "text": "Professional certification from NVIDIA in Generative AI and Large Language Models.<br><br><strong>July 2026</strong>"
-                }
-            ]
-        },
-        "volunteering": {
-            "title": "Volunteering",
-            "subtitle": "Community involvement and leadership.",
-            "items": [
-                {
-                    "title": "GDG on Campus",
-                    "text": "Contributing to technical initiatives and developing AI-based solutions."
-                },
-                {
-                    "title": "AI Club",
-                    "text": "Leading educational and technical initiatives benefiting over <strong>950 participants</strong>."
-                }
-            ]
-        },
-        "skills": {
-            "title": "Skills",
-            "subtitle": "Technical expertise and professional capabilities.",
-            "categories": [
-                {
-                    "name": "Artificial Intelligence",
-                    "skills": ["Generative AI", "LLMs", "RAG", "Autonomous Agents", "Prompt Engineering"]
-                },
-                {
-                    "name": "Machine Learning & NLP",
-                    "skills": ["Deep Learning", "NLP", "Transformers", "Computer Vision", "Anomaly Detection"]
-                },
-                {
-                    "name": "Data & Engineering",
-                    "skills": ["Python", "SQL", "FAISS", "Power BI", "Data Analysis"]
-                },
-                {
-                    "name": "Soft Skills",
-                    "skills": ["Analytical Thinking", "Problem Solving", "Leadership", "Strategic Planning", "Teamwork"]
-                }
-            ]
-        },
-        "languages": {
-            "title": "Languages",
-            "subtitle": "Communication and professional proficiency.",
-            "items": [
-                {"title": "Arabic", "text": "Native"},
-                {"title": "English", "text": "Professional Proficiency"}
-            ]
-        },
-        "contact": {
-            "title": "Let's Build Something Intelligent.",
-            "description": "I'm always interested in connecting with people working on AI, Machine Learning, Generative AI and innovative technology.",
-            "button": "Send Me an Email",
-            "form": {
-                "name": "Your Name",
-                "email": "Your Email",
-                "message": "Message",
-                "submit": "Send Message",
-                "success": "Thank you! Your message has been received.",
-                "error": "Please fill in all fields."
-            }
-        },
-        "footer": "Designed & Built by Wajd Alharbi • AI / ML Engineer"
-    },
-    "Arabic": {
-        "profile": {
-            "name": "وجد الحربي",
-            "role": "مهندسة ذكاء اصطناعي",
-            "availability": "متاحة للفرص الوظيفية",
-        },
-        "menu": {
-            "الرئيسية": "Home",
-            "التعليم": "Education",
-            "الخبرة": "Experience",
-            "المشاريع": "Projects",
-            "الشهادات": "Certifications",
-            "التطوع": "Volunteering",
-            "المهارات": "Skills",
-            "اللغات": "Languages",
-            "التواصل": "Contact",
-        },
-        "home": {
-            "hero": {
-                "eyebrow": "الذكاء الاصطناعي • تعلم الآلة • الذكاء التوليدي",
-                "title_part1": "أبني",
-                "title_gradient": "أنظمة ذكية",
-                "title_part2": "للمستقبل.",
-                "description": "خريجة ذكاء اصطناعي ومهندسة AI/ML طموحة، شغوفة بالوكلاء الأذكياء المستقلين، والنماذج اللغوية الكبيرة، ومعالجة اللغة الطبيعية، والرؤية الحاسوبية والذكاء الاصطناعي التوليدي.<br><br>أعمل على تحويل المشكلات المعقدة إلى حلول ذكية وعملية تعتمد على البيانات.",
-                "primary_btn": "تواصل معي على LinkedIn →",
-                "secondary_btn": "لنتحدث"
-            },
-            "stats": [
-                {"icon": "", "title": "4.92 / 5", "text": "المعدل التراكمي في بكالوريوس الذكاء الاصطناعي"},
-                {"icon": "", "title": "AI / ML", "text": "بناء حلول ذكية تعتمد على البيانات"},
-                {"icon": "", "title": "LLMs", "text": "الذكاء التوليدي والوكلاء الأذكياء"},
-                {"icon": "", "title": "NVIDIA", "text": "NVIDIA-Certified Associate: Generative AI LLMs"}
-            ],
-            "focus_areas": [
-                {"icon": "", "title": "الذكاء التوليدي", "text": "النماذج اللغوية الكبيرة، هندسة الأوامر، أنظمة RAG، الوكلاء الأذكياء وتطبيقات الذكاء الاصطناعي الذكية."},
-                {"icon": "", "title": "تعلم الآلة", "text": "تطوير النماذج، تحليل البيانات، اكتشاف الشذوذ، التصنيف، التقييم والتحسين."},
-                {"icon": "", "title": "الرؤية الحاسوبية", "text": "تصنيف الصور، الأنظمة المعتمدة على CNN، اكتشاف الأشياء وتطبيقات الرؤية الحاسوبية العملية."}
-            ]
-        },
-        "education": {
-            "title": "التعليم",
-            "subtitle": "الخلفية الأكاديمية والتخصص.",
-            "items": [
-                {
-                    "title": "بكالوريوس الذكاء الاصطناعي",
-                    "date": "جامعة جدة • أغسطس 2021 – مايو 2026",
-                    "text": "المعدل التراكمي: <strong>4.92 / 5</strong><br><br>درست الذكاء الاصطناعي، تعلم الآلة، التعلم العميق، معالجة اللغات الطبيعية، الرؤية الحاسوبية وعلوم البيانات."
-                }
-            ]
-        },
-        "experience": {
-            "title": "الخبرة المهنية",
-            "subtitle": "تطبيق الذكاء الاصطناعي على مشكلات واقعية.",
-            "items": [
-                {
-                    "title": "مهندسة ذكاء اصطناعي — متدربة",
-                    "date": "أمانة محافظة جدة • يونيو 2025 – أغسطس 2025",
-                    "text": "• تطوير روبوت محادثة ذكي للموارد البشرية.<br>• تطوير حلول ذكية لتحسين كفاءة سير العمل.<br>• تحسين نموذج CNN للكشف عن النفايات بدقة وصلت إلى <strong>95%</strong>."
-                }
-            ]
-        },
-        "projects": {
-            "title": "المشاريع",
-            "subtitle": "مجموعة من أبرز مشاريع الذكاء الاصطناعي وتعلم الآلة.",
-            "items": [
-                {
-                    "number": "المشروع 01",
-                    "title": "Smart Complaint Classifier",
-                    "description": "نظام لتصنيف الشكاوى العربية باستخدام AraBERT وتقنيات Transformer.",
-                    "tags": ["NLP", "AraBERT", "Transformers"]
-                },
-                {
-                    "number": "المشروع 02",
-                    "title": "Vision-Based Waste Detection",
-                    "description": "نظام يعتمد على CNN للكشف التلقائي عن النفايات الحضرية وتصنيفها.",
-                    "tags": ["Computer Vision", "CNN", "Deep Learning"]
-                },
-                {
-                    "number": "المشروع 03",
-                    "title": "Semantic-Enhanced Collaborative Filtering",
-                    "description": "نظام توصية هجين يجمع بين المعلومات الدلالية وCollaborative Filtering.",
-                    "tags": ["Recommender Systems", "Machine Learning"]
-                },
-                {
-                    "number": "المشروع 04",
-                    "title": "Agentic AI with Autonomous Agents",
-                    "description": "نظام ذكي لاكتشاف الشذوذ يجمع بين الوكلاء الأذكياء ونماذج تعلم الآلة.",
-                    "tags": ["AI Agents", "LSTM", "XGBoost"]
-                }
-            ]
-        },
-        "certifications": {
-            "title": "الشهادات الاحترافية",
-            "subtitle": "الشهادات والاعتمادات المهنية.",
-            "items": [
-                {
-                    "icon": "",
-                    "title": "NVIDIA-Certified Associate: Generative AI LLMs",
-                    "text": "شهادة احترافية من NVIDIA في مجال الذكاء الاصطناعي التوليدي والنماذج اللغوية الكبيرة.<br><br><strong>يوليو 2026</strong>"
-                }
-            ]
-        },
-        "volunteering": {
-            "title": "العمل التطوعي",
-            "subtitle": "المشاركة المجتمعية والقيادة.",
-            "items": [
-                {
-                    "title": "GDG on Campus",
-                    "text": "المساهمة في مبادرات تقنية وتطوير حلول تعتمد على الذكاء الاصطناعي."
-                },
-                {
-                    "title": "نادي الذكاء الاصطناعي",
-                    "text": "قيادة مبادرات تعليمية وتقنية استفاد منها أكثر من <strong>950 مشاركًا</strong>."
-                }
-            ]
-        },
-        "skills": {
-            "title": "المهارات",
-            "subtitle": "الخبرات التقنية والقدرات المهنية.",
-            "categories": [
-                {
-                    "name": "الذكاء الاصطناعي",
-                    "skills": ["الذكاء التوليدي", "النماذج اللغوية الكبيرة", "أنظمة RAG", "الوكلاء الأذكياء", "هندسة الأوامر"]
-                },
-                {
-                    "name": "تعلم الآلة والمعالجة الطبيعية",
-                    "skills": ["التعلم العميق", "معالجة اللغة الطبيعية", "Transformers", "الرؤية الحاسوبية", "اكتشاف الشذوذ"]
-                },
-                {
-                    "name": "البيانات والهندسة",
-                    "skills": ["Python", "SQL", "FAISS", "Power BI", "تحليل البيانات"]
-                },
-                {
-                    "name": "المهارات الشخصية",
-                    "skills": ["التفكير التحليلي", "حل المشكلات", "القيادة", "التخطيط الاستراتيجي", "العمل الجماعي"]
-                }
-            ]
-        },
-        "languages": {
-            "title": "اللغات",
-            "subtitle": "التواصل والكفاءة المهنية.",
-            "items": [
-                {"title": "العربية", "text": "اللغة الأم"},
-                {"title": "الإنجليزية", "text": "كفاءة مهنية كاملة"}
-            ]
-        },
-        "contact": {
-            "title": "لنقم ببناء شيء ذكي.",
-            "description": "أنا مهتمة دائمًا بالتواصل مع الأشخاص الذين يعملون في مجال الذكاء الاصطناعي، تعلم الآلة، الذكاء التوليدي والتقنيات المبتكرة.",
-            "button": "أرسل لي بريدًا إلكترونيًا",
-            "form": {
-                "name": "اسمك",
-                "email": "بريدك الإلكتروني",
-                "message": "الرسالة",
-                "submit": "إرسال الرسالة",
-                "success": "شكراً لك! تم استلام رسالتك.",
-                "error": "يرجى ملء جميع الحقول."
-            }
-        },
-        "footer": "تم التصميم والبناء بواسطة وجد الحربي • مهندسة ذكاء اصطناعي"
-    }
+"""All portfolio content, in English and Arabic.
+
+Edit this file to update the site. Every text value is plain text (it is
+HTML-escaped when rendered). Optional fields that are empty ("" / [] / {})
+are simply not shown, so leave a field empty rather than inventing content.
+"""
+
+# ---------------------------------------------------------------------------
+# Language-independent data
+# ---------------------------------------------------------------------------
+
+SITE = {
+    # Public URL of the deployed static site, e.g. "https://wajd-alharbi.github.io/portfolio".
+    # Used for canonical / Open Graph tags in build.py. Leave empty if unknown.
+    "url": "",
+    "email": "wajd.mazen.alharbi@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/wajd-alharbi-/",
+    "github": "https://github.com/Wajd-Alharbi",
+    "photo": "profile.jpg",  # file inside static/
 }
+
+
+CONTENT = {
+    # =======================================================================
+    # ENGLISH
+    # =======================================================================
+    "en": {
+        "lang_name": "English",
+        "switch_label": "العربية",
+        "meta": {
+            "title": "Wajd Mazen Alharbi — AI Engineer · Automation & Agentic AI",
+            "description": (
+                "Wajd Mazen Alharbi is an AI Engineer focused on agentic AI, LLM "
+                "applications and automation — building intelligent systems that "
+                "automate real-world workflows."
+            ),
+        },
+        "ui": {
+            "skip": "Skip to content",
+            "menu": "Sections",
+            "theme": "Toggle light / dark theme",
+            "problem": "Problem",
+            "solution": "Solution",
+            "contribution": "My contribution",
+            "impact": "Impact",
+            "code": "Code",
+            "demo": "Live demo",
+            "more_projects": "More projects",
+            "all_github": "More on GitHub",
+            "back_to_top": "Back to top",
+            "issued": "Issued",
+            "featured": "Featured",
+        },
+        "nav": [
+            ("about", "About"),
+            ("experience", "Experience"),
+            ("projects", "Projects"),
+            ("skills", "Skills"),
+            ("education", "Education"),
+            ("contact", "Contact"),
+        ],
+        "hero": {
+            "name": "Wajd Mazen Alharbi",
+            "role": "AI Engineer · Automation & Agentic AI",
+            "headline": "I build intelligent systems that automate real-world work.",
+            "intro": (
+                "I design agentic workflows, LLM-powered applications and machine "
+                "learning models that take repetitive, data-heavy processes off "
+                "people's plates — and hold up outside the notebook."
+            ),
+            "status": "Open to AI engineering roles",
+            "location": "Jeddah, Saudi Arabia",
+            "primary_cta": "View my work",
+            "secondary_cta": "Contact me",
+            "facts": [
+                ("B.Sc. AI", "University of Jeddah"),
+                ("4.92 / 5", "Cumulative GPA"),
+                ("NVIDIA-Certified", "Generative AI & LLMs"),
+                ("Digital Transformation", "Jeddah Municipality"),
+            ],
+        },
+        "about": {
+            "kicker": "About",
+            "title": "Engineering AI that does useful work.",
+            "paragraphs": [
+                (
+                    "I'm an Artificial Intelligence graduate from the University of "
+                    "Jeddah, where I studied Computer Science & Engineering with a "
+                    "specialization in AI."
+                ),
+                (
+                    "What drives me is the step after the model: turning machine "
+                    "learning, LLMs and autonomous agents into systems that plug into "
+                    "real workflows. I've applied this in multi-agent and RAG projects, "
+                    "in Arabic NLP and computer vision, and during Digital "
+                    "Transformation training at Jeddah Municipality."
+                ),
+                (
+                    "I approach every project the same way — understand the workflow, "
+                    "find where intelligence or automation removes friction, then build "
+                    "and measure something people can actually use."
+                ),
+            ],
+            "principles": [
+                ("Workflow first", "Start from the real process and the people in it, not from the model."),
+                ("Systems, not demos", "Agents, retrieval and models wired together into something dependable."),
+                ("Measured results", "Evaluate against the problem — accuracy, time saved, effort removed."),
+            ],
+            "languages_label": "Languages",
+            "languages": "Arabic (native) · English (professional)",
+        },
+        "experience": {
+            "kicker": "Experience",
+            "title": "Practical experience in a professional environment.",
+            "items": [
+                {
+                    "role": "Digital Transformation Trainee",
+                    "org": "Jeddah Municipality",
+                    "date": "Jun 2025 – Aug 2025",
+                    "summary": (
+                        "Applied AI and automation within the municipality's digital "
+                        "transformation efforts, working on practical solutions for "
+                        "internal processes."
+                    ),
+                    "points": [
+                        "Developed an intelligent HR chatbot.",
+                        "Built smart solutions to improve the efficiency of internal workflows.",
+                        "Enhanced a CNN model for waste detection, reaching 95% accuracy.",
+                    ],
+                    "tags": ["Digital Transformation", "Automation", "Chatbots", "Computer Vision"],
+                },
+            ],
+            "leadership_title": "Leadership & community",
+            "leadership": [
+                {
+                    "org": "GDG on Campus — University of Jeddah",
+                    "text": "Contributing to technical initiatives and developing AI-based solutions, including automation for club administration.",
+                },
+                {
+                    "org": "AI Club",
+                    "text": "Leading educational and technical initiatives that have reached more than 950 participants.",
+                },
+            ],
+        },
+        "projects": {
+            "kicker": "Selected work",
+            "title": "Projects",
+            "intro": "Agentic systems, retrieval and applied machine learning — built around a concrete problem.",
+            "featured": [
+                {
+                    "title": "Autonomous Multi-Agent Framework for Smart Campus",
+                    "category": "Agentic AI",
+                    "summary": "A framework where autonomous AI agents work alongside machine learning models to detect anomalies across smart-campus operations.",
+                    "problem": "Campus operations produce continuous streams of data, and unusual behaviour is hard to spot and act on through manual monitoring alone.",
+                    "solution": "Autonomous agents coordinate with LSTM and XGBoost models to detect anomalies, combining learned detection with agent-driven reasoning and follow-up.",
+                    "contribution": "",  # TODO: describe your role (e.g. architecture, agents, models)
+                    "impact": "",  # TODO: add a result if you have one
+                    "tags": ["AI Agents", "Multi-Agent Systems", "LSTM", "XGBoost", "Anomaly Detection"],
+                    "links": {},  # e.g. {"code": "https://github.com/...", "demo": "https://..."}
+                },
+                {
+                    "title": "AI-Powered Automation for GDG on Campus",
+                    "category": "Automation",
+                    "summary": "AI-driven automation for the administration of the Google Developer Groups (GDG) on Campus club.",
+                    "problem": "Running a student tech community involves recurring administrative work that takes organizers' time away from the community itself.",
+                    "solution": "AI-powered automation that takes over routine administrative tasks, so organizers can focus on events and members.",
+                    "contribution": "",  # TODO
+                    "impact": "",  # TODO
+                    "tags": ["Automation", "Generative AI", "Workflow Design"],
+                    "links": {},
+                },
+                {
+                    "title": "RAG File Q&A",
+                    "category": "Generative AI",
+                    "summary": "A retrieval-augmented generation app for asking natural-language questions about your own files.",
+                    "problem": "Finding a specific answer inside long documents is slow, and a general-purpose LLM can't see private files and may hallucinate.",
+                    "solution": "Documents are indexed for semantic search; relevant passages are retrieved and passed to an LLM so answers are grounded in the uploaded content.",
+                    "contribution": "",  # TODO
+                    "impact": "",  # TODO
+                    "tags": ["RAG", "LLMs", "FAISS", "Python"],  # TODO: confirm the exact stack
+                    "links": {},
+                },
+                {
+                    "title": "SeCor — POI Recommendation System",
+                    "category": "Recommender Systems",
+                    "summary": "Semantic-Enhanced Collaborative Filtering: a hybrid recommender for points of interest.",
+                    "problem": "Pure collaborative filtering struggles with sparse interaction data and ignores what places actually are.",
+                    "solution": "A hybrid model that combines semantic information about points of interest with collaborative filtering to produce more relevant recommendations.",
+                    "contribution": "",  # TODO
+                    "impact": "",  # TODO
+                    "tags": ["Recommender Systems", "Collaborative Filtering", "Machine Learning"],
+                    "links": {},
+                },
+            ],
+            "more": [
+                {
+                    "title": "Smart Complaint Classifier",
+                    "summary": "Classifies Arabic complaints automatically using AraBERT and Transformer techniques.",
+                    "tags": ["Arabic NLP", "AraBERT", "Transformers"],
+                    "links": {},
+                },
+                {
+                    "title": "Vision-Based Waste Detection",
+                    "summary": "CNN-based detection and classification of urban waste — enhanced to 95% accuracy during training at Jeddah Municipality.",
+                    "tags": ["Computer Vision", "CNN", "Deep Learning"],
+                    "links": {},
+                },
+            ],
+        },
+        "skills": {
+            "kicker": "Skills",
+            "title": "Toolkit",
+            "categories": [
+                ("Generative AI & LLMs", ["Large Language Models", "RAG", "Prompt Engineering", "Transformers", "AraBERT"]),
+                ("Automation & Agentic AI", ["Autonomous Agents", "Multi-Agent Systems", "Workflow Automation", "Chatbots"]),
+                ("Machine Learning & Deep Learning", ["Deep Learning", "CNNs", "LSTM", "XGBoost", "Anomaly Detection", "Recommender Systems"]),
+                ("Data, NLP & Vision", ["NLP", "Arabic NLP", "Computer Vision", "Data Analysis", "Vector Search (FAISS)"]),
+                ("Programming & Tools", ["Python", "SQL", "FAISS", "Power BI"]),
+                ("Professional", ["Analytical Thinking", "Problem Solving", "Leadership", "Strategic Planning", "Teamwork"]),
+            ],
+        },
+        "education": {
+            "kicker": "Education & certifications",
+            "title": "Foundations",
+            "degree": "Bachelor of Computer Science & Engineering — Artificial Intelligence",
+            "school": "University of Jeddah",
+            "date": "Aug 2021 – May 2026",
+            "gpa_label": "GPA",
+            "gpa": "4.92 / 5",
+            "focus": "Machine Learning · Deep Learning · NLP · Computer Vision · Data Science",
+            "certs_title": "Certifications",
+            "certs": [
+                {
+                    "name": "NVIDIA-Certified Associate: Generative AI & LLMs",
+                    "issuer": "NVIDIA",
+                    "date": "Jul 2026",
+                    "url": "",  # TODO: add the credential verification link
+                },
+            ],
+        },
+        "contact": {
+            "kicker": "Contact",
+            "title": "Let's build something intelligent.",
+            "text": "I'm looking for opportunities in AI engineering, automation and agentic AI. The fastest way to reach me is email — I'm also happy to connect on LinkedIn.",
+            "email_label": "Email",
+            "linkedin_label": "LinkedIn",
+            "linkedin_handle": "in/wajd-alharbi-",
+            "github_label": "GitHub",
+            "github_handle": "Wajd-Alharbi",
+        },
+        "footer": "Wajd Mazen Alharbi · AI Engineer",
+    },
+    # =======================================================================
+    # ARABIC
+    # =======================================================================
+    "ar": {
+        "lang_name": "العربية",
+        "switch_label": "English",
+        "meta": {
+            "title": "وجد مازن الحربي — مهندسة ذكاء اصطناعي · الأتمتة والوكلاء الأذكياء",
+            "description": (
+                "وجد مازن الحربي مهندسة ذكاء اصطناعي تركّز على الوكلاء الأذكياء وتطبيقات "
+                "النماذج اللغوية الكبيرة والأتمتة، وتبني أنظمة ذكية تؤتمت مسارات العمل الواقعية."
+            ),
+        },
+        "ui": {
+            "skip": "تخطَّ إلى المحتوى",
+            "menu": "الأقسام",
+            "theme": "تبديل الوضع الفاتح / الداكن",
+            "problem": "المشكلة",
+            "solution": "الحل",
+            "contribution": "مساهمتي",
+            "impact": "الأثر",
+            "code": "الكود",
+            "demo": "عرض مباشر",
+            "more_projects": "مشاريع أخرى",
+            "all_github": "المزيد على GitHub",
+            "back_to_top": "العودة للأعلى",
+            "issued": "تاريخ الإصدار",
+            "featured": "مميز",
+        },
+        "nav": [
+            ("about", "نبذة"),
+            ("experience", "الخبرة"),
+            ("projects", "المشاريع"),
+            ("skills", "المهارات"),
+            ("education", "التعليم"),
+            ("contact", "التواصل"),
+        ],
+        "hero": {
+            "name": "وجد مازن الحربي",
+            "role": "مهندسة ذكاء اصطناعي · الأتمتة والوكلاء الأذكياء",
+            "headline": "أبني أنظمة ذكية تؤتمت العمل في الواقع.",
+            "intro": (
+                "أصمّم مسارات عمل قائمة على الوكلاء الأذكياء، وتطبيقات مدعومة بالنماذج "
+                "اللغوية الكبيرة، ونماذج تعلّم آلة تتولّى العمليات المتكررة والمعتمدة على "
+                "البيانات — وتعمل بكفاءة خارج بيئة التجربة."
+            ),
+            "status": "متاحة لفرص هندسة الذكاء الاصطناعي",
+            "location": "جدة، المملكة العربية السعودية",
+            "primary_cta": "استعرض أعمالي",
+            "secondary_cta": "تواصل معي",
+            "facts": [
+                ("بكالوريوس ذكاء اصطناعي", "جامعة جدة"),
+                ("4.92 / 5", "المعدل التراكمي"),
+                ("شهادة NVIDIA", "الذكاء التوليدي والنماذج اللغوية"),
+                ("التحول الرقمي", "أمانة محافظة جدة"),
+            ],
+        },
+        "about": {
+            "kicker": "نبذة",
+            "title": "ذكاء اصطناعي يُنجز عملاً مفيدًا.",
+            "paragraphs": [
+                (
+                    "خريجة ذكاء اصطناعي من جامعة جدة، درستُ علوم وهندسة الحاسب بتخصص "
+                    "الذكاء الاصطناعي."
+                ),
+                (
+                    "ما يحفّزني هو الخطوة التي تلي بناء النموذج: تحويل تعلّم الآلة والنماذج "
+                    "اللغوية الكبيرة والوكلاء الأذكياء إلى أنظمة تندمج في مسارات العمل الفعلية. "
+                    "طبّقتُ ذلك في مشاريع الأنظمة متعددة الوكلاء وRAG، ومعالجة اللغة العربية "
+                    "والرؤية الحاسوبية، وخلال تدريبي في التحول الرقمي بأمانة محافظة جدة."
+                ),
+                (
+                    "أتعامل مع كل مشروع بالطريقة نفسها: أفهم مسار العمل، وأحدد أين يزيل الذكاء "
+                    "الاصطناعي أو الأتمتة العوائق، ثم أبني حلًا قابلًا للاستخدام وأقيس أثره."
+                ),
+            ],
+            "principles": [
+                ("مسار العمل أولًا", "أبدأ من العملية الحقيقية والأشخاص فيها، لا من النموذج."),
+                ("أنظمة لا عروض", "وكلاء واسترجاع ونماذج تعمل معًا في نظام يُعتمد عليه."),
+                ("نتائج قابلة للقياس", "التقييم وفق المشكلة: الدقة، والوقت الموفَّر، والجهد المُزال."),
+            ],
+            "languages_label": "اللغات",
+            "languages": "العربية (اللغة الأم) · الإنجليزية (كفاءة مهنية)",
+        },
+        "experience": {
+            "kicker": "الخبرة",
+            "title": "خبرة عملية في بيئة مهنية.",
+            "items": [
+                {
+                    "role": "متدربة في التحول الرقمي",
+                    "org": "أمانة محافظة جدة",
+                    "date": "يونيو 2025 – أغسطس 2025",
+                    "summary": (
+                        "طبّقتُ الذكاء الاصطناعي والأتمتة ضمن جهود التحول الرقمي في الأمانة، "
+                        "وعملتُ على حلول عملية للعمليات الداخلية."
+                    ),
+                    "points": [
+                        "تطوير روبوت محادثة ذكي للموارد البشرية.",
+                        "بناء حلول ذكية لرفع كفاءة سير العمل الداخلي.",
+                        "تحسين نموذج CNN للكشف عن النفايات لتصل دقته إلى 95%.",
+                    ],
+                    "tags": ["التحول الرقمي", "الأتمتة", "روبوتات المحادثة", "الرؤية الحاسوبية"],
+                },
+            ],
+            "leadership_title": "القيادة والمجتمع",
+            "leadership": [
+                {
+                    "org": "GDG on Campus — جامعة جدة",
+                    "text": "المساهمة في المبادرات التقنية وتطوير حلول قائمة على الذكاء الاصطناعي، منها أتمتة الأعمال الإدارية للنادي.",
+                },
+                {
+                    "org": "نادي الذكاء الاصطناعي",
+                    "text": "قيادة مبادرات تعليمية وتقنية استفاد منها أكثر من 950 مشاركًا.",
+                },
+            ],
+        },
+        "projects": {
+            "kicker": "أعمال مختارة",
+            "title": "المشاريع",
+            "intro": "أنظمة وكلاء أذكياء، واسترجاع معلومات، وتعلّم آلة تطبيقي — كلٌّ منها مبني حول مشكلة محددة.",
+            "featured": [
+                {
+                    "title": "Autonomous Multi-Agent Framework for Smart Campus",
+                    "category": "الوكلاء الأذكياء",
+                    "summary": "إطار عمل يعمل فيه وكلاء ذكاء اصطناعي مستقلون جنبًا إلى جنب مع نماذج تعلّم الآلة لاكتشاف الحالات الشاذة في عمليات الحرم الجامعي الذكي.",
+                    "problem": "تُنتج عمليات الحرم الجامعي تدفقات مستمرة من البيانات، ويصعب رصد السلوك غير الطبيعي والتعامل معه بالمراقبة اليدوية وحدها.",
+                    "solution": "وكلاء مستقلون يتنسّقون مع نموذجَي LSTM وXGBoost لاكتشاف الحالات الشاذة، بالجمع بين الكشف المتعلَّم والاستدلال والمتابعة عبر الوكلاء.",
+                    "contribution": "",
+                    "impact": "",
+                    "tags": ["AI Agents", "Multi-Agent Systems", "LSTM", "XGBoost", "Anomaly Detection"],
+                    "links": {},
+                },
+                {
+                    "title": "AI-Powered Automation for GDG on Campus",
+                    "category": "الأتمتة",
+                    "summary": "أتمتة مدعومة بالذكاء الاصطناعي للأعمال الإدارية لنادي مجتمعات مطوّري Google ‏(GDG on Campus).",
+                    "problem": "إدارة مجتمع تقني طلابي تتضمن أعمالًا إدارية متكررة تستهلك وقت المنظمين على حساب المجتمع نفسه.",
+                    "solution": "أتمتة مدعومة بالذكاء الاصطناعي تتولى المهام الإدارية الروتينية، ليتفرغ المنظمون للفعاليات والأعضاء.",
+                    "contribution": "",
+                    "impact": "",
+                    "tags": ["Automation", "Generative AI", "Workflow Design"],
+                    "links": {},
+                },
+                {
+                    "title": "RAG File Q&A",
+                    "category": "الذكاء التوليدي",
+                    "summary": "تطبيق قائم على التوليد المعزّز بالاسترجاع (RAG) لطرح أسئلة بلغة طبيعية حول ملفاتك.",
+                    "problem": "البحث عن إجابة محددة داخل مستندات طويلة بطيء، ونموذج اللغة العام لا يرى الملفات الخاصة وقد يختلق الإجابات.",
+                    "solution": "تُفهرس المستندات للبحث الدلالي، ثم تُسترجع المقاطع ذات الصلة وتُمرَّر إلى النموذج اللغوي لتستند الإجابات إلى محتوى الملفات.",
+                    "contribution": "",
+                    "impact": "",
+                    "tags": ["RAG", "LLMs", "FAISS", "Python"],
+                    "links": {},
+                },
+                {
+                    "title": "SeCor — POI Recommendation System",
+                    "category": "أنظمة التوصية",
+                    "summary": "الترشيح التعاوني المعزّز دلاليًا: نظام توصية هجين للأماكن ونقاط الاهتمام.",
+                    "problem": "يواجه الترشيح التعاوني وحده صعوبة مع البيانات المتفرقة ويتجاهل طبيعة الأماكن نفسها.",
+                    "solution": "نموذج هجين يدمج المعلومات الدلالية عن نقاط الاهتمام مع الترشيح التعاوني لتقديم توصيات أكثر ملاءمة.",
+                    "contribution": "",
+                    "impact": "",
+                    "tags": ["Recommender Systems", "Collaborative Filtering", "Machine Learning"],
+                    "links": {},
+                },
+            ],
+            "more": [
+                {
+                    "title": "Smart Complaint Classifier",
+                    "summary": "تصنيف تلقائي للشكاوى العربية باستخدام AraBERT وتقنيات Transformer.",
+                    "tags": ["Arabic NLP", "AraBERT", "Transformers"],
+                    "links": {},
+                },
+                {
+                    "title": "Vision-Based Waste Detection",
+                    "summary": "كشف النفايات الحضرية وتصنيفها باستخدام CNN — حُسّن ليصل إلى دقة 95% خلال التدريب في أمانة محافظة جدة.",
+                    "tags": ["Computer Vision", "CNN", "Deep Learning"],
+                    "links": {},
+                },
+            ],
+        },
+        "skills": {
+            "kicker": "المهارات",
+            "title": "الأدوات والمهارات",
+            "categories": [
+                ("الذكاء التوليدي والنماذج اللغوية", ["Large Language Models", "RAG", "Prompt Engineering", "Transformers", "AraBERT"]),
+                ("الأتمتة والوكلاء الأذكياء", ["Autonomous Agents", "Multi-Agent Systems", "Workflow Automation", "Chatbots"]),
+                ("تعلّم الآلة والتعلّم العميق", ["Deep Learning", "CNNs", "LSTM", "XGBoost", "Anomaly Detection", "Recommender Systems"]),
+                ("البيانات واللغة والرؤية", ["NLP", "Arabic NLP", "Computer Vision", "Data Analysis", "Vector Search (FAISS)"]),
+                ("البرمجة والأدوات", ["Python", "SQL", "FAISS", "Power BI"]),
+                ("مهارات مهنية", ["التفكير التحليلي", "حل المشكلات", "القيادة", "التخطيط الاستراتيجي", "العمل الجماعي"]),
+            ],
+        },
+        "education": {
+            "kicker": "التعليم والشهادات",
+            "title": "الأساس الأكاديمي",
+            "degree": "بكالوريوس علوم وهندسة الحاسب — الذكاء الاصطناعي",
+            "school": "جامعة جدة",
+            "date": "أغسطس 2021 – مايو 2026",
+            "gpa_label": "المعدل",
+            "gpa": "4.92 / 5",
+            "focus": "تعلّم الآلة · التعلّم العميق · معالجة اللغة الطبيعية · الرؤية الحاسوبية · علم البيانات",
+            "certs_title": "الشهادات",
+            "certs": [
+                {
+                    "name": "NVIDIA-Certified Associate: Generative AI & LLMs",
+                    "issuer": "NVIDIA",
+                    "date": "يوليو 2026",
+                    "url": "",
+                },
+            ],
+        },
+        "contact": {
+            "kicker": "التواصل",
+            "title": "لنبنِ شيئًا ذكيًا معًا.",
+            "text": "أبحث عن فرص في هندسة الذكاء الاصطناعي والأتمتة والوكلاء الأذكياء. أسرع طريقة للتواصل معي هي البريد الإلكتروني، ويسعدني التواصل عبر LinkedIn أيضًا.",
+            "email_label": "البريد الإلكتروني",
+            "linkedin_label": "LinkedIn",
+            "linkedin_handle": "in/wajd-alharbi-",
+            "github_label": "GitHub",
+            "github_handle": "Wajd-Alharbi",
+        },
+        "footer": "وجد مازن الحربي · مهندسة ذكاء اصطناعي",
+    },
+}
+
+LANGUAGES = tuple(CONTENT)
+DEFAULT_LANGUAGE = "en"
