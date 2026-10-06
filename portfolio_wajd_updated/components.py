@@ -163,14 +163,13 @@ def hero(data):
     )
 
 
-def about(data, asset_base):
+def about(data, index, asset_base):
     a = data["about"]
     paragraphs = "".join(f"<p>{_e(p)}</p>" for p in a["paragraphs"])
     principles = "".join(
         f"<li><h3>{_e(t)}</h3><p>{_e(d)}</p></li>" for t, d in a["principles"]
     )
     return (
-        '<section class="section" id="about" aria-labelledby="about-title">'
         '<div class="container about-grid">'
         '<figure class="portrait">'
         f'<img src="{_e(asset_base)}{_e(SITE["photo"])}" alt="{_e(data["hero"]["name"])}" '
@@ -178,16 +177,15 @@ def about(data, asset_base):
         f'<figcaption><span>{_e(a["languages_label"])}</span>{_e(a["languages"])}</figcaption>'
         "</figure>"
         '<div class="about-copy">'
-        + section_head(1, a["kicker"], a["title"], heading_id="about-title")
+        + section_head(index, a["kicker"], a["title"], heading_id="about-title")
         + f'<div class="prose">{paragraphs}</div>'
         f'<ul class="principles">{principles}</ul>'
         "</div>"
         "</div>"
-        "</section>"
     )
 
 
-def experience(data):
+def experience(data, index):
     x = data["experience"]
     items = ""
     for item in x["items"]:
@@ -206,18 +204,11 @@ def experience(data):
             "</div>"
             "</article>"
         )
-    leadership = "".join(
-        f'<li><h4>{_e(l["org"])}</h4><p>{_e(l["text"])}</p></li>' for l in x["leadership"]
-    )
     return (
-        '<section class="section section-alt" id="experience" aria-labelledby="experience-title">'
         '<div class="container">'
-        + section_head(2, x["kicker"], x["title"], heading_id="experience-title")
+        + section_head(index, x["kicker"], x["title"], heading_id="experience-title")
         + f'<div class="roles">{items}</div>'
-        f'<h3 class="subhead">{_e(x["leadership_title"])}</h3>'
-        f'<ul class="leadership">{leadership}</ul>'
         "</div>"
-        "</section>"
     )
 
 
@@ -254,7 +245,7 @@ def mini_project(project, ui):
     )
 
 
-def projects(data):
+def projects(data, index):
     p, ui = data["projects"], data["ui"]
     featured = "".join(project_card(i, proj, ui) for i, proj in enumerate(p["featured"], 1))
     more = "".join(mini_project(proj, ui) for proj in p["more"])
@@ -264,71 +255,106 @@ def projects(data):
         cls="text-link",
     )
     return (
-        '<section class="section" id="projects" aria-labelledby="projects-title">'
         '<div class="container">'
-        + section_head(3, p["kicker"], p["title"], p["intro"], heading_id="projects-title")
+        + section_head(index, p["kicker"], p["title"], p["intro"], heading_id="projects-title")
         + f'<div class="project-list">{featured}</div>'
         '<div class="more-head">'
         f'<h3 class="subhead">{_e(ui["more_projects"])}</h3>{github}'
         "</div>"
         f'<div class="more-grid">{more}</div>'
         "</div>"
-        "</section>"
     )
 
 
-def skills(data):
+def skills(data, index):
     s = data["skills"]
     cards = "".join(
         f'<li class="skill-group"><h3>{_e(name)}</h3>{tags(items, "tags tags-quiet")}</li>'
         for name, items in s["categories"]
     )
     return (
-        '<section class="section section-alt" id="skills" aria-labelledby="skills-title">'
         '<div class="container">'
-        + section_head(4, s["kicker"], s["title"], heading_id="skills-title")
+        + section_head(index, s["kicker"], s["title"], heading_id="skills-title")
         + f'<ul class="skill-grid">{cards}</ul>'
         "</div>"
-        "</section>"
     )
 
 
-def education(data):
-    ed, ui = data["education"], data["ui"]
-    certs = ""
-    for c in ed["certs"]:
-        name = _e(c["name"])
-        if c.get("url"):
-            name = _external(c["url"], f"{name}{icon('external')}", cls="text-link")
-        certs += (
-            '<li class="cert">'
-            f'<span class="cert-badge" aria-hidden="true">{_e(c["issuer"][:1])}</span>'
-            f'<div><h4>{name}</h4><p>{_e(c["issuer"])} · {_e(ui["issued"])} {_e(c["date"])}</p></div>'
-            "</li>"
-        )
+def education(data, index):
+    ed = data["education"]
     return (
-        '<section class="section" id="education" aria-labelledby="education-title">'
         '<div class="container">'
-        + section_head(5, ed["kicker"], ed["title"], heading_id="education-title")
-        + '<div class="edu-grid">'
-        '<article class="card degree">'
+        + section_head(index, ed["kicker"], ed["title"], heading_id="education-title")
+        + '<article class="card degree">'
+        '<div class="degree-main">'
         f'<p class="degree-school">{_e(ed["school"])}</p>'
         f"<h3>{_e(ed['degree'])}</h3>"
         f'<p class="degree-date">{_e(ed["date"])}</p>'
-        f'<p class="degree-gpa"><span>{_e(ed["gpa_label"])}</span><strong>{_e(ed["gpa"])}</strong></p>'
         f'<p class="degree-focus">{_e(ed["focus"])}</p>'
-        "</article>"
-        '<article class="card certs" id="certifications">'
-        f'<h3 class="card-title">{_e(ed["certs_title"])}</h3>'
-        f'<ul class="cert-list">{certs}</ul>'
+        "</div>"
+        f'<p class="degree-gpa"><span>{_e(ed["gpa_label"])}</span><strong>{_e(ed["gpa"])}</strong></p>'
         "</article>"
         "</div>"
-        "</div>"
-        "</section>"
     )
 
 
-def contact(data):
+def certifications(data, index):
+    c, ui = data["certifications"], data["ui"]
+    cards = ""
+    for cert in c["items"]:
+        verify = (
+            _external(cert["url"], f"<span>{_e(ui['verify'])}</span>{icon('external')}", cls="text-link")
+            if cert.get("url")
+            else ""
+        )
+        text = f'<p class="cert-text">{_e(cert["text"])}</p>' if cert.get("text") else ""
+        cards += (
+            '<li class="cert">'
+            f'<span class="cert-badge" aria-hidden="true">{_e(cert["issuer"])}</span>'
+            '<div class="cert-body">'
+            f"<h3>{_e(cert['name'])}</h3>"
+            f"{text}"
+            f'<p class="cert-meta">{_e(cert["issuer"])} · {_e(ui["issued"])} {_e(cert["date"])}</p>'
+            f"{verify}"
+            "</div>"
+            "</li>"
+        )
+    return (
+        '<div class="container">'
+        + section_head(index, c["kicker"], c["title"], c.get("intro", ""), heading_id="certifications-title")
+        + f'<ul class="cert-list">{cards}</ul>'
+        "</div>"
+    )
+
+
+def volunteering(data, index):
+    v = data["volunteering"]
+    cards = ""
+    for item in v["items"]:
+        highlight = ""
+        if item.get("highlight"):
+            value, label = item["highlight"]
+            highlight = (
+                f'<p class="vol-highlight"><strong>{_e(value)}</strong><span>{_e(label)}</span></p>'
+            )
+        cards += (
+            '<li class="vol">'
+            f'<p class="vol-type">{_e(item["type"])}</p>'
+            f"<h3>{_e(item['org'])}</h3>"
+            f'<p class="vol-text">{_e(item["text"])}</p>'
+            f"{highlight}"
+            f"{tags(item.get('tags', []), 'tags tags-quiet')}"
+            "</li>"
+        )
+    return (
+        '<div class="container">'
+        + section_head(index, v["kicker"], v["title"], v.get("intro", ""), heading_id="volunteering-title")
+        + f'<ul class="vol-grid">{cards}</ul>'
+        "</div>"
+    )
+
+
+def contact(data, index):
     c = data["contact"]
     rows = [
         (f"mailto:{SITE['email']}", "mail", c["email_label"], SITE["email"], False),
@@ -348,21 +374,33 @@ def contact(data):
         )
         items += f"<li>{link}</li>"
     return (
-        '<section class="section section-alt contact" id="contact" aria-labelledby="contact-title">'
         '<div class="container contact-grid">'
         "<div>"
-        + section_head(6, c["kicker"], c["title"], heading_id="contact-title")
+        + section_head(index, c["kicker"], c["title"], heading_id="contact-title")
         + f'<p class="contact-text">{_e(c["text"])}</p>'
         "</div>"
         f'<ul class="contact-list">{items}</ul>'
         "</div>"
-        "</section>"
     )
 
 
 # ---------------------------------------------------------------------------
 # Full page body
 # ---------------------------------------------------------------------------
+
+# Section order on the page. Numbers ("01 / About") and the alternating
+# background follow this order automatically.
+SECTIONS = [
+    ("about", about),
+    ("experience", experience),
+    ("projects", projects),
+    ("skills", skills),
+    ("education", education),
+    ("certifications", certifications),
+    ("volunteering", volunteering),
+    ("contact", contact),
+]
+
 
 def page(data, lang, *, asset_base, alt_lang_href, alt_lang_code):
     """The complete page body.
@@ -371,6 +409,14 @@ def page(data, lang, *, asset_base, alt_lang_href, alt_lang_code):
     alt_lang_href: link to the same page in the other language.
     """
     direction = "rtl" if lang == "ar" else "ltr"
+    sections = ""
+    for index, (key, render) in enumerate(SECTIONS, 1):
+        body = render(data, index, asset_base) if key == "about" else render(data, index)
+        alt = " section-alt" if index % 2 == 0 else ""
+        sections += (
+            f'<section class="section section-{key}{alt}" id="{key}" aria-labelledby="{key}-title">'
+            f"{body}</section>"
+        )
     return (
         f'<div class="site" lang="{lang}" dir="{direction}">'
         # Checkbox drives the CSS-only theme toggle (see `:has(#theme-toggle:checked)` in style.css)
@@ -379,12 +425,7 @@ def page(data, lang, *, asset_base, alt_lang_href, alt_lang_code):
         + topbar(data, alt_lang_href, alt_lang_code)
         + '<main id="main">'
         + hero(data)
-        + about(data, asset_base)
-        + experience(data)
-        + projects(data)
-        + skills(data)
-        + education(data)
-        + contact(data)
+        + sections
         + "</main>"
         + footer(data)
         + "</div>"

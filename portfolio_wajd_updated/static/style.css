@@ -215,7 +215,7 @@ body { margin: 0; background: var(--bg); }
   gap: 24px;
   height: var(--topbar-h);
 }
-.brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; font-size: 15px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; flex: none; font-weight: 600; font-size: 15px; white-space: nowrap; }
 .brand-mark {
   display: grid;
   place-items: center;
@@ -231,6 +231,7 @@ body { margin: 0; background: var(--bg); }
 .nav ul { display: flex; gap: 4px; }
 .nav a {
   display: block;
+  white-space: nowrap;
   padding: 6px 12px;
   border-radius: 8px;
   font-size: 14px;
@@ -551,10 +552,6 @@ main { display: block; }
   background: var(--accent);
 }
 .section .subhead { margin-block: 56px 20px !important; }
-.leadership { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
-.leadership li { padding-top: 18px; border-top: 1px solid var(--border-strong); }
-.leadership h4 { font-size: 16px; margin-bottom: 6px !important; }
-.leadership p { color: var(--muted); font-size: 15px; }
 
 /* ---------- Projects ---------- */
 
@@ -641,40 +638,102 @@ main { display: block; }
 }
 .skill-group h3 { font-size: 15.5px; margin-bottom: 16px !important; }
 
-/* ---------- Education & certifications ---------- */
+/* ---------- Education ---------- */
 
-.edu-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 20px; align-items: start; }
-.degree-school, .card-title {
-  font-family: var(--font-mono);
-  font-size: 12.5px !important;
-  font-weight: 500 !important;
-  text-transform: uppercase;
-  letter-spacing: 0.08em !important;
-  color: var(--accent) !important;
+.degree {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 32px;
+  align-items: center;
 }
-.card-title { color: var(--muted) !important; margin-bottom: 20px !important; }
-.site[lang="ar"] :is(.degree-school, .card-title) { letter-spacing: 0 !important; font-family: var(--font-sans); }
-.degree h3 { margin-top: 12px !important; font-size: clamp(1.2rem, 2.2vw, 1.45rem); line-height: 1.3; }
+.degree-school {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+.site[lang="ar"] .degree-school { letter-spacing: 0; font-family: var(--font-sans); font-size: 14px; }
+.degree h3 { margin-top: 12px !important; font-size: clamp(1.2rem, 2.2vw, 1.5rem); line-height: 1.3; }
 .degree-date { margin-top: 8px !important; color: var(--muted); font-size: 15px; }
-.degree-gpa { display: flex; align-items: baseline; gap: 12px; margin-top: 28px !important; }
-.degree-gpa span { color: var(--muted); font-size: 14px; }
-.degree-gpa strong { font-size: 34px; font-weight: 600; letter-spacing: -0.03em; }
 .degree-focus { margin-top: 20px !important; padding-top: 18px; border-top: 1px solid var(--border); color: var(--muted); font-size: 14.5px; }
-.cert-list { display: grid; gap: 18px; }
-.cert { display: flex; gap: 16px; align-items: flex-start; }
+.degree-gpa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 180px;
+  padding: 24px 28px;
+  border-radius: var(--radius);
+  background: var(--accent-soft);
+}
+.degree-gpa span { color: var(--muted); font-size: 13.5px; }
+.degree-gpa strong { font-size: 38px; font-weight: 600; letter-spacing: -0.03em; line-height: 1.2; }
+
+/* ---------- Certifications ---------- */
+
+.cert-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 20px; }
+.cert {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  padding: clamp(24px, 3vw, 32px);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: border-color 0.2s, box-shadow 0.25s;
+}
+.cert:hover { border-color: var(--border-strong); box-shadow: var(--shadow); }
 .cert-badge {
   display: grid;
   place-items: center;
   flex: none;
-  width: 44px; height: 44px;
+  min-width: 88px;
+  height: 56px;
+  padding-inline: 14px;
   border-radius: 12px;
   background: var(--accent-soft);
   color: var(--accent);
   font-family: var(--font-mono);
+  font-size: 14px;
   font-weight: 600;
+  letter-spacing: 0.04em;
 }
-.cert h4 { font-size: 16px; line-height: 1.4; }
-.cert p { margin-top: 4px !important; color: var(--muted); font-size: 14px; }
+.cert-body { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+.cert h3 { font-size: clamp(1.1rem, 2vw, 1.3rem); line-height: 1.35; }
+.cert-text { color: var(--muted); font-size: 15px; }
+.cert-meta { font-family: var(--font-mono); font-size: 13px; color: var(--faint); }
+.site[lang="ar"] .cert-meta { font-family: var(--font-sans); }
+
+/* ---------- Volunteering ---------- */
+
+.vol-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 20px; }
+.vol {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: clamp(24px, 3vw, 32px);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: border-color 0.2s, box-shadow 0.25s;
+}
+.vol:hover { border-color: var(--border-strong); box-shadow: var(--shadow); }
+.vol-type {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+.site[lang="ar"] .vol-type { font-family: var(--font-sans); letter-spacing: 0; font-size: 13.5px; }
+.vol h3 { font-size: clamp(1.15rem, 2vw, 1.35rem); }
+.vol-text { color: var(--muted); font-size: 15.5px; }
+.vol-highlight { display: flex; align-items: baseline; gap: 10px; }
+.vol-highlight strong { direction: ltr; unicode-bidi: isolate; font-size: 30px; font-weight: 600; letter-spacing: -0.03em; }
+.vol-highlight span { color: var(--muted); font-size: 14px; }
+.vol .tags { margin-top: auto; padding-top: 8px; }
 
 /* ---------- Contact ---------- */
 
@@ -684,7 +743,7 @@ main { display: block; }
   gap: clamp(40px, 6vw, 80px);
   align-items: center;
 }
-.contact .section-head { margin-bottom: 20px; }
+.section-contact .section-head { margin-bottom: 20px; }
 .contact-text { color: var(--muted); font-size: 17px; max-width: 48ch; }
 .contact-list { border-top: 1px solid var(--border); }
 .contact-link {
@@ -724,7 +783,7 @@ main { display: block; }
 /* ---------- Responsive ---------- */
 
 @media (max-width: 960px) {
-  .hero-grid, .about-grid, .contact-grid, .project, .edu-grid { grid-template-columns: minmax(0, 1fr); }
+  .hero-grid, .about-grid, .contact-grid, .project { grid-template-columns: minmax(0, 1fr); }
   .hero-visual { max-width: 520px; }
   .portrait { position: static; max-width: 340px; }
   .skill-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -732,7 +791,12 @@ main { display: block; }
   .project-details { padding-top: 20px; border-top: 1px solid var(--border); }
 }
 
-@media (max-width: 860px) {
+/* 8 nav links: drop the name next to the logo on mid widths, then move the nav to its own row. */
+@media (min-width: 1001px) and (max-width: 1240px) {
+  .brand-name { display: none; }
+}
+
+@media (max-width: 1000px) {
   :root { --topbar-h: 104px; }
   .topbar-inner { flex-wrap: wrap; height: auto; padding-block: 10px 0; row-gap: 6px; }
   .topbar-actions { margin-inline-start: auto; }
@@ -753,10 +817,12 @@ main { display: block; }
   .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .facts li:nth-child(3) { padding-inline-start: 0; border-inline-start: 0; }
   .facts li:nth-child(n + 3) { margin-top: 4px; }
-  .principles, .leadership, .more-grid, .skill-grid { grid-template-columns: minmax(0, 1fr); }
+  .principles, .more-grid, .skill-grid { grid-template-columns: minmax(0, 1fr); }
+  .degree { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .degree-gpa { align-items: flex-start; }
+  .cert { flex-direction: column; gap: 16px; }
   .principles { gap: 20px; }
   .hero-ctas .btn { flex: 1 1 auto; }
-  .brand-name { display: none; }
   .trace-steps li { grid-template-columns: 12px 64px minmax(0, 1fr); gap: 10px; padding-inline: 14px; }
   .trace-steps li + li::before { inset-inline-start: 19px; }
 }

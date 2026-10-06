@@ -50,6 +50,7 @@ CONTENT = {
             "back_to_top": "Back to top",
             "issued": "Issued",
             "featured": "Featured",
+            "verify": "Verify credential",
         },
         "nav": [
             ("about", "About"),
@@ -57,6 +58,8 @@ CONTENT = {
             ("projects", "Projects"),
             ("skills", "Skills"),
             ("education", "Education"),
+            ("certifications", "Certifications"),
+            ("volunteering", "Volunteering"),
             ("contact", "Contact"),
         ],
         "hero": {
@@ -128,17 +131,6 @@ CONTENT = {
                         "Enhanced a CNN model for waste detection, reaching 95% accuracy.",
                     ],
                     "tags": ["Digital Transformation", "Automation", "Chatbots", "Computer Vision"],
-                },
-            ],
-            "leadership_title": "Leadership & community",
-            "leadership": [
-                {
-                    "org": "GDG on Campus — University of Jeddah",
-                    "text": "Contributing to technical initiatives and developing AI-based solutions, including automation for club administration.",
-                },
-                {
-                    "org": "AI Club",
-                    "text": "Leading educational and technical initiatives that have reached more than 950 participants.",
                 },
             ],
         },
@@ -220,21 +212,46 @@ CONTENT = {
             ],
         },
         "education": {
-            "kicker": "Education & certifications",
-            "title": "Foundations",
+            "kicker": "Education",
+            "title": "Academic foundation",
             "degree": "Bachelor of Computer Science & Engineering — Artificial Intelligence",
             "school": "University of Jeddah",
             "date": "Aug 2021 – May 2026",
             "gpa_label": "GPA",
             "gpa": "4.92 / 5",
             "focus": "Machine Learning · Deep Learning · NLP · Computer Vision · Data Science",
-            "certs_title": "Certifications",
-            "certs": [
+        },
+        "certifications": {
+            "kicker": "Certifications",
+            "title": "Professional certifications",
+            "items": [
                 {
                     "name": "NVIDIA-Certified Associate: Generative AI & LLMs",
                     "issuer": "NVIDIA",
                     "date": "Jul 2026",
+                    "text": "Professional certification from NVIDIA in Generative AI and Large Language Models.",
                     "url": "",  # TODO: add the credential verification link
+                },
+            ],
+        },
+        "volunteering": {
+            "kicker": "Volunteering",
+            "title": "Volunteering & community partnerships",
+            "intro": "Supporting the student tech community through technical initiatives, education and AI solutions.",
+            "items": [
+                {
+                    "type": "Community partnership",
+                    "org": "GDG on Campus — University of Jeddah",
+                    "text": "Contributing to technical initiatives and developing AI-based solutions, including automation for club administration.",
+                    "highlight": None,
+                    "tags": ["Technical Initiatives", "AI Solutions", "Automation"],
+                },
+                {
+                    "type": "Volunteering & leadership",
+                    "org": "AI Club",
+                    "text": "Leading educational and technical initiatives in artificial intelligence.",
+                    "highlight": ("950+", "participants reached"),
+                    "tags": ["Leadership", "Education", "Technical Initiatives"],
                 },
             ],
         },
@@ -278,6 +295,7 @@ CONTENT = {
             "back_to_top": "العودة للأعلى",
             "issued": "تاريخ الإصدار",
             "featured": "مميز",
+            "verify": "التحقق من الشهادة",
         },
         "nav": [
             ("about", "نبذة"),
@@ -285,6 +303,8 @@ CONTENT = {
             ("projects", "المشاريع"),
             ("skills", "المهارات"),
             ("education", "التعليم"),
+            ("certifications", "الشهادات"),
+            ("volunteering", "التطوع"),
             ("contact", "التواصل"),
         ],
         "hero": {
@@ -302,7 +322,7 @@ CONTENT = {
             "secondary_cta": "تواصل معي",
             "facts": [
                 ("بكالوريوس ذكاء اصطناعي", "جامعة جدة"),
-                ("4.92 / 5", "المعدل التراكمي"),
+                ("\u20664.92 / 5\u2069", "المعدل التراكمي"),
                 ("شهادة NVIDIA", "الذكاء التوليدي والنماذج اللغوية"),
                 ("التحول الرقمي", "أمانة محافظة جدة"),
             ],
@@ -352,17 +372,6 @@ CONTENT = {
                         "تحسين نموذج CNN للكشف عن النفايات لتصل دقته إلى 95%.",
                     ],
                     "tags": ["التحول الرقمي", "الأتمتة", "روبوتات المحادثة", "الرؤية الحاسوبية"],
-                },
-            ],
-            "leadership_title": "القيادة والمجتمع",
-            "leadership": [
-                {
-                    "org": "GDG on Campus — جامعة جدة",
-                    "text": "المساهمة في المبادرات التقنية وتطوير حلول قائمة على الذكاء الاصطناعي، منها أتمتة الأعمال الإدارية للنادي.",
-                },
-                {
-                    "org": "نادي الذكاء الاصطناعي",
-                    "text": "قيادة مبادرات تعليمية وتقنية استفاد منها أكثر من 950 مشاركًا.",
                 },
             ],
         },
@@ -444,21 +453,46 @@ CONTENT = {
             ],
         },
         "education": {
-            "kicker": "التعليم والشهادات",
+            "kicker": "التعليم",
             "title": "الأساس الأكاديمي",
             "degree": "بكالوريوس علوم وهندسة الحاسب — الذكاء الاصطناعي",
             "school": "جامعة جدة",
             "date": "أغسطس 2021 – مايو 2026",
             "gpa_label": "المعدل",
-            "gpa": "4.92 / 5",
+            "gpa": "\u20664.92 / 5\u2069",
             "focus": "تعلّم الآلة · التعلّم العميق · معالجة اللغة الطبيعية · الرؤية الحاسوبية · علم البيانات",
-            "certs_title": "الشهادات",
-            "certs": [
+        },
+        "certifications": {
+            "kicker": "الشهادات",
+            "title": "الشهادات الاحترافية",
+            "items": [
                 {
                     "name": "NVIDIA-Certified Associate: Generative AI & LLMs",
                     "issuer": "NVIDIA",
                     "date": "يوليو 2026",
+                    "text": "شهادة احترافية من NVIDIA في الذكاء الاصطناعي التوليدي والنماذج اللغوية الكبيرة.",
                     "url": "",
+                },
+            ],
+        },
+        "volunteering": {
+            "kicker": "التطوع",
+            "title": "التطوع والشراكات المجتمعية",
+            "intro": "دعم المجتمع التقني الطلابي عبر المبادرات التقنية والتعليم وحلول الذكاء الاصطناعي.",
+            "items": [
+                {
+                    "type": "شراكة مجتمعية",
+                    "org": "GDG on Campus — جامعة جدة",
+                    "text": "المساهمة في المبادرات التقنية وتطوير حلول قائمة على الذكاء الاصطناعي، منها أتمتة الأعمال الإدارية للنادي.",
+                    "highlight": None,
+                    "tags": ["مبادرات تقنية", "حلول ذكاء اصطناعي", "الأتمتة"],
+                },
+                {
+                    "type": "تطوع وقيادة",
+                    "org": "نادي الذكاء الاصطناعي",
+                    "text": "قيادة مبادرات تعليمية وتقنية في مجال الذكاء الاصطناعي.",
+                    "highlight": ("950+", "مشاركًا استفادوا من المبادرات"),
+                    "tags": ["القيادة", "التعليم", "مبادرات تقنية"],
                 },
             ],
         },
